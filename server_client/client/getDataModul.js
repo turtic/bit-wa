@@ -20,7 +20,7 @@ const getInfo = function (f) {
         .then(function (myJson) {
             
             console.log(myJson);
-            f(myJson);
+            f(myJson)
         });
 };
 

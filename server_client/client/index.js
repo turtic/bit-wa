@@ -1,21 +1,23 @@
 import Blog from './dataModule.js'
 import getInfo from './getDataModul.js'
 
-console.log(getInfo())
-console.log(getInfo)
 
-let answer = getInfo()
-
-let listOfBlogPost;
-
-for (let i = 0; i < answer.length; i++) {
-
-    listOfBlogPost = listOfBlogPost + `
-    <div class="blog">
-    <h2>${answer.title}</h2>
-    <p>${answer.para}</p>
+let getMeTheAnswer = function (answer) {
+    
+    let listOfBlogPost = "";
+   
+    for (let i = 0; i < answer.loremText.length; i++) {
+        
+        listOfBlogPost = listOfBlogPost + `
+    <div class="card-panel hoverable col-12 blue-grey darken-1">
+    <h2 class="white-text">${answer.loremText[i].title}</h2>
+    <p class="white-text">${answer.loremText[i].para}</p>
     </div>`
 
+    }
+
+    $(".blog-posts").append(listOfBlogPost);
 }
 
-$(".row").append(listOfBlogPost);
+
+getInfo(getMeTheAnswer)
