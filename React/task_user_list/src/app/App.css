@@ -26,3 +26,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+i.small {
+  font-size: 22px;
+  line-height: 22px;
+  /* font-size: 60px; */
+  line-height: 22px;
+  vertical-align: text-bottom;
+}
