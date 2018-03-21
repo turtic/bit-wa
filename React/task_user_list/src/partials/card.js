@@ -8,7 +8,7 @@ import { emailFormating, dateFormating } from '../shared/dataFormating';
 const Card = (props) => {
     return (
         <div className="col s12 m6 l4">
-            <div className="card hoverable">
+            <div className={"card hoverable" + " " + props.user.gender}>
                 <div className="card-image">
                     <img src={props.user.picture.large} alt={props.user.name.first + "'s img"} />
                     <span className="card-title">{props.user.name.first}</span>

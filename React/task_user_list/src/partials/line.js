@@ -6,7 +6,7 @@ import { emailFormating, dateFormating } from '../shared/dataFormating';
 const Line = (props) => {
     return (
         <div className="col s12 ">
-            <div className="card-panel grey lighten-5 z-depth-1">
+            <div className= {"card-panel z-depth-1 hoverable" + " " + props.user.gender}>
                 <div className="row valign-wrapper">
                     <div className="col s2">
                         <img src={props.user.picture.large} alt={props.user.name.first + "'s img"} className="circle responsive-img" />

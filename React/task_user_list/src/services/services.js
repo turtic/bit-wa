@@ -11,7 +11,8 @@ class FetchMeData extends Component {
             .then(function (result) {
                 console.log(result);
                 return result.results;
-            });
+            })
+            // .then
     }
 
 }
