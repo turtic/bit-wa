@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Footer = () => (
 
@@ -9,7 +9,7 @@ const Footer = () => (
         <div className="footer-copyright">
             <div className="container">
                 © 2018 Copyright Text
-            <a className="grey-text text-lighten-4 right" href="#!"></a>
+            <p className="grey-text text-lighten-4 right" href="#!">Gde je ovo {}</p>
             </div>
         </div>
     </footer>

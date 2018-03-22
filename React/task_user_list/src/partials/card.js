@@ -1,5 +1,5 @@
 import React from 'react';
-import { emailFormating, dateFormating } from '../shared/dataFormating';
+import { emailFormating, dateFormating, capitalizeFirstLetter } from '../shared/dataFormating';
 
 // emailFormating
 
@@ -11,7 +11,7 @@ const Card = (props) => {
             <div className={"card hoverable" + " " + props.user.gender}>
                 <div className="card-image">
                     <img src={props.user.picture.large} alt={props.user.name.first + "'s img"} />
-                    <span className="card-title">{props.user.name.first}</span>
+                    <span className="card-title">{capitalizeFirstLetter(props.user.name.first)}</span>
                 </div>
                 <div className="card-content">
                     <p>email: { emailFormating(props.user.email)}</p>

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Toggle from './toggler';
-import { Switch, Route, Redirect } from "react-router-dom";
+import React from 'react';
+// import Toggle from './toggler';
+// import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 

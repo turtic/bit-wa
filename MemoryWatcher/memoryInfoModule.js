@@ -6,8 +6,6 @@ const os = require('os');
 let currentCallback;
 
 setInterval(function () {
- 
-
     GBfreemem = os.freemem / (1024 * 1024 * 1024);
 
     if (GBfreemem < 1.90) {
@@ -26,3 +24,19 @@ const RegisterForAlerts = function (f) {
 }
 
 module.exports.RegisterForAlerts = RegisterForAlerts;
+
+
+console.log("pre");
+
+for (let index = 0; index < array.length; index++) {
+    console.log(index);
+    
+}
+
+console.log("posle");
+console.log("posle");
+console.log("posle");
+console.log("posle");
+console.log("posle");
+console.log("posle");
+console.log("posle");
