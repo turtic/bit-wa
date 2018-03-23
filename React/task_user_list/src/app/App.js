@@ -16,8 +16,9 @@ import About from '../partials/about';
 const App = (props) => {
   return (
     <Switch>
+      
       <Route path='/home' component={Home} />
-      <Redirect from='/' to='/home' />
+      {/* <Redirect from='/' to='/home' /> */}
       <Route path='/about' component={About} />
     </Switch>
   )

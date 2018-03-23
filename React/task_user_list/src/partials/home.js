@@ -85,6 +85,7 @@ class Home extends Component {
     refreshClick() {
         fetchMeData.fetchUsers().then(response => {
             this.setState({
+                users: response,
                 filteredUsers: response
             });
 
@@ -137,7 +138,7 @@ class Home extends Component {
 
     componentDidMount() {
 
-
+        //seting view to grid or list
         if (typeof (localStorage.getItem('displayValue')) !== 'undefined') {
 
             let a = (localStorage.getItem('displayValue') === 'true')
@@ -147,15 +148,13 @@ class Home extends Component {
             });
         }
 
-
+        //loading people from memory
         if (localStorage.getItem('displayedPeople') !== null) {
 
             let displayedPeopleParse = JSON.parse(localStorage.getItem('displayedPeople'))
-            console.log(displayedPeopleParse)
+
             this.setState({
-
                 users: displayedPeopleParse
-
             });
 
             this.setState({
@@ -163,7 +162,7 @@ class Home extends Component {
 
             });
 
-            // 
+            // counting male nad female
 
             let maleCounter = 0;
             let femaleCounter = 0;
@@ -187,39 +186,32 @@ class Home extends Component {
         } else {
             this.refreshClick()
         }
+        // geting refresh time from storage
 
-        this.setState({
-            lastRefreshTime: localStorage.getItem('refreshTime')
-        });
-        console.log(this.state.lastRefreshTime)
+        if (localStorage.getItem('refreshTime') == null){
 
+            let currentTime = new Date()
+            this.setState({
+                lastRefreshTime: currentTime.valueOf()
+            });
+
+        } else {
+            this.setState({
+                lastRefreshTime: localStorage.getItem('refreshTime')
+            });
+        }
+       
+        // console.log(this.state.lastRefreshTime)
 
         setInterval(() => {
-            let currentTime = new Date()
 
-            let razlika = (currentTime.valueOf() - this.state.lastRefreshTime)/1000;
-
+            let timeNow = new Date()
+            let timeDifference = (timeNow.valueOf() - this.state.lastRefreshTime) / 1000;
             this.setState({
-                timeThatPassed: razlika
+                timeThatPassed: timeDifference
             });
+
         }, 1000);
-
-
-
-
-        // let zbir = 0;
-
-        // setInterval(()=>{
-
-        //     zbir++
-
-        //     this.setState({
-        //         timeThatPassed: zbir
-        //     });
-
-        // }, 1000);
-
-
 
 
     }
@@ -234,17 +226,17 @@ class Home extends Component {
                 <Navbar toggleView={this.state.isToggleOn} handleThisClick={this.handleClick} refreshClick={this.refreshClick} inputValue={this.state.inputValue} inputTyping={this.inputTyping} />
                 <div className='container'>
                     <div className='row'>
-                        <h2> {this.state.timeThatPassed} </h2>
-                        <h2> Male: {this.state.male} Female: {this.state.female} </h2>
-                        {this.state.users.length === 0 ? <Load /> : ''}
+                        
+                        <p className = "right-align custom-grey"> Male: {this.state.male} Female: {this.state.female} </p>
+                        {this.state.users.length === 0 && this.state.filteredUsers.length === 0 ? <Load /> : ''}
 
-                        {this.state.filteredUsers.length === 0 ? <Empty /> : ''}
+                        {this.state.filteredUsers.length === 0 && this.state.users.length !== 0 ? <Empty /> : ''}
 
                         {this.state.isToggleOn ? <List ourUserData={this.state.filteredUsers} /> : <Grid ourUserData={this.state.filteredUsers} />}
 
                     </div>
                 </div>
-                <Footer />
+                <Footer timer={this.state.timeThatPassed} />
             </div>
         );
     }

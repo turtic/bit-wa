@@ -1,11 +1,18 @@
 import React from 'react';
-// import { Switch, Route } from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
+import Footer from './footer';
 
 const About = (props) => {
     return (
         <React.Fragment>
+            <nav>
+                <div className="nav-wrapper">
+                    <Link className="brand-logo center" to='/home'>User task list</Link>
+                </div>
+            </nav>
+            
+            <div className="container">
+            
             <h1>About</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo consequuntur vel repudiandae aperiam ullam. Officiis perferendis
               debitis enim, animi optio, fugiat illo minus repudiandae culpa adipisci, hic asperiores odit mollitia! Vitae natus pariatur
@@ -49,6 +56,9 @@ const About = (props) => {
               facere. Dolores asperiores dicta in ea beatae non architecto? Voluptatum fugiat eveniet porro deserunt ut, nemo minus
               deleniti laboriosam est! Officiis quam neque tenetur non quo eos exercitationem iste dolores ratione. Consectetur fugit
           a necessitatibus natus quos ratione sit amet! Corrupti ipsa inven</p>
+          </div>
+            <Footer />
+            
         </React.Fragment>
 
     )
