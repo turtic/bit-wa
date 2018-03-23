@@ -18,8 +18,10 @@ const App = (props) => {
     <Switch>
       
       <Route path='/home' component={Home} />
-      {/* <Redirect from='/' to='/home' /> */}
-      <Route path='/about' component={About} />
+      <Route  path='/about' component={About} />
+      <Redirect from='/' to='/home' />
+      
+      
     </Switch>
   )
 }
