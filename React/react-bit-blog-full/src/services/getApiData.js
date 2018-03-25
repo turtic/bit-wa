@@ -1,25 +1,50 @@
-const requestUrl = 'https://api.randomuser.me/';
+import React from 'react';
 
-let getPosts = fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (myJson) {
-        console.log(myJson);
-    });
+const requestUrl = 'https://jsonplaceholder.typicode.com/';
 
-    let getUsers = fetch('https://jsonplaceholder.typicode.com/users')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (myJson) {
-        console.log(myJson);
-    });
+class FetchMeData extends React.Component {
+
+    fetchAuthors() {
+        return fetch( requestUrl + 'users')
+            .then(function (response) {
+                return response.json();
+            })
+            // .then(function (result) {
+                
+            //     return result;
+            // })
+            
+    }
+
+    fetchPosts() {
+        return fetch(requestUrl + 'posts')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                
+                return result;
+            })
+            
+    }
+
+    fetchAuthorSingle(authorID) {
+        return fetch(requestUrl + authorID)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                
+                return result;
+            })
+            
+    }
+
     
-export {getPosts, getUsers};
+
+}
 
 
-// member me?
-{/* <div styles = {{margin:"1px"}}/>
-const mystyle={margin : "1px"}
-<div style={mystyle}/> */}
+
+
+export const Please = new FetchMeData();

@@ -18,17 +18,18 @@ class App extends Component {
     return (
       <div>
         <Header />
-        {/* <Switch>
-          <Route path='/home' component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/authors' component={Authors} />
-          <Redirect from='/' to='/home' />
+        <Switch>
+          <Route exact path='/home' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/authors' component={Authors} />
+          <Route exact path="/posts/new" component={AddPost} />
+          <Route exact path="/authors/:id" component={SingleAuthor} />
+          <Route exact path="/posts/:postID" component={SinglePost} />
+          
+          <Redirect exact from='/' to='/home' />
         </Switch>
-        <SingleAuthor/> */}
-        <AddPost/>
         <Footer />
-        {/* <Route path="/authors/:name" component={SingleAuthor} />
-        <Route path="/post/:id" component={SinglePost} /> */}
+      
       </div>
     );
   }

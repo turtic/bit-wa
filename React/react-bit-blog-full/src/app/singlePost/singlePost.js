@@ -1,24 +1,84 @@
+
 import React from 'react';
 
-const SinglePost = () => (
-    <div className="container">
-        <div className="row">
-            <h1 className="center-align">Post title</h1>
-            <a href="#">Author Name</a>
+import { ListOfAllPosts } from '../../entities/postEntity';
+import { ListOfAllAuthors } from '../../entities/authorEntity';
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum numquam enim expedita, aut quos, vitae laboriosam magni facere sequi quibusdam illum tempore praesentium. Voluptatum eum dignissimos architecto perspiciatis sint!
-Reprehenderit neque fugiat distinctio quasi nam ipsum! Blanditiis quaerat non obcaecati, perspiciatis ad eum provident asperiores debitis vero doloremque nulla sed fugit ipsam neque. Ea expedita quae facilis praesentium ipsa!
-Provident incidunt eius culpa, illo quisquam quidem autem nobis earum aspernatur libero architecto nostrum quod veritatis veniam nesciunt, similique accusamus laboriosam error magni inventore neque quibusdam commodi. Nam, ipsam libero?
-Nihil numquam libero cum eligendi tenetur neque quam accusantium porro. Obcaecati odio cumque sunt. Beatae enim sed, minima debitis corporis veniam rerum a quos harum, in, officia alias ab unde!</p>
+import { Link } from "react-router-dom";
 
-            <h3>3 more posts from author</h3>
-            <ul>
-                <li><a href="">Title 10</a></li>
-                <li><a href="">Title 11</a></li>
-                <li><a href="">Title 12</a></li>
-            </ul>
 
+class SinglePost extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {post: {}, authorID: 1, author: {}, authorList:[] }
+    };
+
+    
+
+    componentDidMount() {
+
+    let id = this.props.match.params.postID;
+
+    ListOfAllPosts.forEach(element => {
+        if (element.postID == id){
+ 
+         this.setState({ authorID : element.authorID })
+         this.setState({ post : element })
+
+        }
+    });
+   
+
+       ListOfAllAuthors.forEach(element => {
+           if (element.id == this.state.authorID){
+            this.setState({ author: element })
+           }
+       });
+
+       this.setState({ authorList: ListOfAllAuthors })
+
+    }
+
+
+    render() {
+
+        return (
+            <div className="container">
+            <div className="row">
+                <h1 className="center-align">{this.state.post.title}</h1>
+                
+                <Link to={`authors/${this.state.authorID}`}><p>{this.state.author.name}</p></Link>
+
+                <p>{this.state.post.content}</p>
+    
+                <h3>More posts</h3>
+                {console.log(this.state.author.authorsPosts)}
+                <ul>
+                {/* {this.state.author.authorsPosts.map((element) =>
+                        <li><Link to={`authors/${element.id}`}>{element.title}</Link></li>)} */}
+
+                        {/* {
+                            
+                            ()=>{for (let i = 0; i < 4; i++) {
+                            
+                                ListOfAllAuthors
+                            
+                        }}
+                        
+                        } */}
+
+                    <li><a href="">title 10</a></li>
+                    <li><a href="">Title 11</a></li>
+                    <li><a href="">Title 12</a></li>
+                </ul>
+    
+            </div>
         </div>
-    </div>
-);
+        
+            
+        )
+    }
+}
+
 export default SinglePost;

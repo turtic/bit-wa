@@ -48,3 +48,11 @@
  .order-2 {
   order: 2;
 }
+
+.btn {
+  margin-right: 20px;
+}
+
+.pl10px {
+  padding-left: 12px;
+}
