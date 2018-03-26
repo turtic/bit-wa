@@ -8,7 +8,7 @@ export const resetListOfAllAuthors = ()=> {ListOfAllAuthors = [];}
 
 
 export class AuthorEntity {
-    constructor(id, name, phone, username, email, street, city, zipcode, companyName, slogan ) {
+    constructor(id, name, phone, username, email, street, city, zipcode, companyName, slogan, lat, lng ) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -20,6 +20,8 @@ export class AuthorEntity {
         this.companyName = companyName;
         this.slogan = slogan;
         this.authorsPosts = [];
+        this.lat = lat;
+        this.lng = lng;
 
     }
 

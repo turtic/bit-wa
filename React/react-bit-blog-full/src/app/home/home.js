@@ -11,8 +11,6 @@ class Home extends React.Component {
         this.state = { postList: [] }
     };
 
-
-
     componentDidMount() {
 
         Please.fetchPosts().then((result) => {
@@ -77,3 +75,5 @@ class Home extends React.Component {
 }
 
 export default Home;
+
+

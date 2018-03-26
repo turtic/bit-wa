@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+// import logo from '../logo.svg';
 import '../App.css';
 import { Switch, Route, Redirect } from "react-router-dom";
 import Footer from './partials/footer';
@@ -26,7 +26,7 @@ class App extends Component {
           <Route exact path="/authors/:id" component={SingleAuthor} />
           <Route exact path="/posts/:postID" component={SinglePost} />
           
-          <Redirect exact from='/' to='/home' />
+          <Redirect  from='/' to='/home' />
         </Switch>
         <Footer />
       

@@ -14,42 +14,23 @@ class Authors extends React.Component {
         this.state = { authorList: [] }
     };
 
-
-
-
-    // 
-
-
-    onClick = () => {
-        this.setState({ selected: true })
-    }
-
     componentDidMount() {
 
         // Please.fetchAuthors().then((result) => {
         //     this.setState({ authorList: result })
         // })
-        console.log(ListOfAllAuthors)
+        // console.log(ListOfAllAuthors)
 
         Please.fetchAuthors().then((result) => {
 
             resetListOfAllAuthors();
 
             result.forEach(function (element) {
-                let newAuthor = new AuthorEntity(element.id, element.name, element.phone, element.username, element.email, element.address.street,  element.address.city,  element.address.zipcode, element.company.name,  element.company.catchPhrase)
+                let newAuthor = new AuthorEntity(element.id, element.name, element.phone, element.username, element.email, element.address.street,  element.address.city,  element.address.zipcode, element.company.name,  element.company.catchPhrase, element.address.geo.lat, element.address.geo.lng)
                 ListOfAllAuthors.push(newAuthor)
             });
 
             this.setState({ authorList: ListOfAllAuthors })
-
-            // passTheAuthorObj = (elementID) => {
-            //     for (let i = 0; i < ListOfAllAuthors.length; i++) {
-            //         if (ListOfAllAuthors[i].id == elementID) {
-            //             return ListOfAllAuthors[i]
-            //         }
-            //     }
-            // }
-
 
         })
 
@@ -62,13 +43,13 @@ class Authors extends React.Component {
             <div class="container">
                 <div class="row">
 
-                    {
+                    {/* {
                         console.log(this.state.authorList)
 
                     }
                     {
                         console.log(ListOfAllAuthors)
-                    }
+                    } */}
 
 
 
