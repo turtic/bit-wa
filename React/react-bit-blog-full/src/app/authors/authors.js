@@ -26,7 +26,7 @@ class Authors extends React.Component {
             resetListOfAllAuthors();
 
             result.forEach(function (element) {
-                let newAuthor = new AuthorEntity(element.id, element.name, element.phone, element.username, element.email, element.address.street,  element.address.city,  element.address.zipcode, element.company.name,  element.company.catchPhrase, element.address.geo.lat, element.address.geo.lng)
+                let newAuthor = new AuthorEntity(element.id, element.name, element.phone, element.username, element.email, element.address.street, element.address.city, element.address.zipcode, element.company.name, element.company.catchPhrase, element.address.geo.lat, element.address.geo.lng)
                 ListOfAllAuthors.push(newAuthor)
             });
 
@@ -43,44 +43,12 @@ class Authors extends React.Component {
             <div class="container">
                 <div class="row">
 
-                    {/* {
-                        console.log(this.state.authorList)
-
-                    }
-                    {
-                        console.log(ListOfAllAuthors)
-                    } */}
-
-
-
                     <h2 className="center-align">AUTHORS({this.state.authorList.length})</h2>
+                    <ul className="author-list">
+                        {this.state.authorList.map((element) =>
+                            <li className='underline'><i class="material-icons">star</i><Link to={`authors/${element.id}`}>{element.name}</Link></li>)}
 
-                    {this.state.authorList.map((element) =>
-                        <li><Link to={`authors/${element.id}`}>{element.name}</Link></li>)}
-
-
-                    {/* {this.state.authorList.map((element) =>
-                        <li><Link to={{
-                            pathname: `/authors/${element.id}`,
-                            state: {
-                                cardHeading: 'This is a heading',
-                                cardDesc: 'Description'
-                            }
-                        }} >{element.name}</Link></li>)} */}
-
-
-
-
-
-
-                    {/* <Route path="/authors/:id" component={SingleAuthor} /> */}
-
-
-                    {/* <Route path="/topics/:name" component={Topic} />
-...
-<a href="/topics/food">Food</a> */}
-
-
+                    </ul>
                 </div>
             </div>
         )

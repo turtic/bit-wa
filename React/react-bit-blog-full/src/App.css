@@ -27,19 +27,40 @@
   to { transform: rotate(360deg); }
 }
 
+html {
+ 
+  color: rgb(244, 242, 242);
+}
+
 #root {
   min-height: 100vh; 
   overflow: hidden;
   
   position: relative;
   padding-bottom: 100px; 
+
+  background-color: #000000;
+background-image: url("./imports/images/asfalt-light.png");
+
  }
+ 
+ nav {
+  background-color: #546e7a;
+background-image: url("./imports/images/light-wool.png");
+ }
+
 
  footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+
  }
+
+ .page-footer {
+  background-color: #546e7a;
+background-image: url("./imports/images/light-wool.png");
+}
 
  .order-1 {
    order: 1;
@@ -55,4 +76,46 @@
 
 .pl10px {
   padding-left: 12px;
+}
+
+.author-list li {
+font-size: 30px;
+}
+
+
+.author-list .material-icons {
+  color: gold;
+    padding-right: 13px;
+}
+
+.post-list .card .card-content {
+  padding: 24px;
+  border-radius: 0 0 2px 2px;
+  background-color: #546e7a;
+  background-image: url(./imports/images/light-wool.png);
+  background-blend-mode: difference;
+  border: 2px solid white;
+}
+
+
+.single-author .card-panel {
+background-image: url(./imports/images/skulls.png);
+background-color: #546e7a7d !important;
+}
+
+img.responsive-img {
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.hoverable:hover {
+  -webkit-box-shadow: -8px -8px 146px -4px rgba(255,255,255,0.98);
+  -moz-box-shadow: -8px -8px 146px -4px rgba(255,255,255,0.98);
+  box-shadow: -8px -8px 146px -4px rgba(255,255,255,0.98);
+ 
+}
+
+.underline a:hover {
+  outline: 0;
+  text-decoration: underline;
 }

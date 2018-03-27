@@ -35,7 +35,7 @@ class SinglePost extends React.Component {
             resetListOfAllAuthors();
 
             result.forEach(function (element) {
-                let newAuthor = new AuthorEntity(element.id, element.name, element.phone, element.username, element.email, element.address.street, element.address.city, element.address.zipcode, element.company.name, element.company.catchPhrase)
+                let newAuthor = new AuthorEntity(element.id, element.name, element.phone, element.username, element.email, element.address.street, element.address.city, element.address.zipcode, element.company.name, element.company.catchPhrase,  element.address.geo.lat, element.address.geo.lng)
                 ListOfAllAuthors.push(newAuthor)
             });
 
@@ -149,7 +149,7 @@ class SinglePost extends React.Component {
                 <div className="row">
                     <h1 className="center-align">{this.state.post.title}</h1>
 
-                    <Link to={`/authors/${this.state.authorID}`}><p>{this.state.author.name}</p></Link>
+                    <p>by <Link to={`/authors/${this.state.authorID}`}>{this.state.author.name}</Link></p>
 {console.log(this.state.authorID)}
                     <p>{this.state.post.content}</p>
 

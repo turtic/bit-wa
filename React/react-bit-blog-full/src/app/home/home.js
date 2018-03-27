@@ -41,7 +41,7 @@ class Home extends React.Component {
 
         return (
             <div class="container">
-                <div class="row">
+                <div class="row post-list">
 
                     <h1 className="center-align">POSTS</h1>
 
@@ -52,7 +52,7 @@ class Home extends React.Component {
 
                             <div class="row">
                                 <div class="col s12">
-                                    <div class="card blue-grey darken-1">
+                                    <div class="card blue-grey darken-1 hoverable">
                                         <div class="card-content white-text">
                                             <span class="card-title">{element.title}</span>
                                             <p>{element.content}</p>
